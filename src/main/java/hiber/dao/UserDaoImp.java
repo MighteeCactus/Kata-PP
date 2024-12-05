@@ -1,14 +1,17 @@
 package hiber.dao;
 
+import hiber.model.Car;
 import hiber.model.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
+@Transactional
 public class UserDaoImp implements UserDao {
 
    @Autowired
@@ -26,4 +29,9 @@ public class UserDaoImp implements UserDao {
       return query.getResultList();
    }
 
+   @Override
+   public void add(User user, Car car) {
+      user.setCar(car);
+      sessionFactory.getCurrentSession().save(user);
+   }
 }
