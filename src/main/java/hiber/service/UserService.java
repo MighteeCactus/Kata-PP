@@ -12,5 +12,6 @@ public interface UserService {
 
     void add(User user, Car car);
 
+    // Optional<User> для того, чтобы дальше в функциональном стиле с ним работать
     Optional<User> userByCar(String model, int series);
 }

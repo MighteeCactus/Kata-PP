@@ -32,6 +32,7 @@ public class UserServiceImp implements UserService {
       userDao.add(user, car);
    }
 
+   // Optional<User> для того, чтобы дальше в функциональном стиле с ним работать
    @Override
    public Optional<User> userByCar(String model, int series) {
       Optional<Car> car = carDao.getBy(model, series);
