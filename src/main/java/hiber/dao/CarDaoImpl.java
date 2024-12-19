@@ -2,7 +2,6 @@ package hiber.dao;
 
 import hiber.model.Car;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,8 +12,11 @@ import java.util.Optional;
 @Transactional
 public class CarDaoImpl implements CarDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
+
+    public CarDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     @SuppressWarnings("unchecked")
