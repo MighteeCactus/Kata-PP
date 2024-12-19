@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Машины</title>
+</head>
+<body>
+<div class="container">
+    <h1>Машины</h1>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Изготовитель</th>
+            <th>Колёс</th>
+        </tr>
+        <th:block th:each="car : ${cars}">
+            <tr>
+                <td th:text="${car.getId()}"></td>
+                <td th:text="${car.getManufacturer()}"></td>
+                <td th:text="${car.getWheelsCount()}"></td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+
+</body>
+</html>
